@@ -7,37 +7,45 @@ body {
     width: 240px;
     /*height: 250x;*/
     border-radius: 80%;
+    border: 2px solid black;
 }
 
 /*center class*/
-.center {
+.centerpicture{
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 50%;
   }  
+  
 /* Bordered form */
   /* Full-width inputs */
   input[type=text], input[type=password] {
-    width: 50%;
-    padding: 12px 20px;
-    margin: 8px 0;
-    display: inline-block;
-    border: 1px solid #ccc;
+    width: 250px;
+    height: 15px;
+    padding: 18px 12px;
+    margin: 0px 10px;
+   /* display: inline-block;*/
+    border-radius: 25px;
+    border: 2px solid black;
     box-sizing: border-box;
     display: block;
     margin-left: auto;
     margin-right: auto;
-    
+  
+  }
+
+  #remeber.me{
+    color: white;
   }
   
   /* Set a style for all buttons */
   button {
-    background-color: #04AA6D;
+    background-color:black;
     color: white;
     padding: 10px 10px;
     margin: 8px 0;
-    border: none;
+    border-radius: 25px;
     cursor: pointer;
     width: 20%;
     display: block;
@@ -58,49 +66,39 @@ body {
     display: block;
     margin-left: auto;
     margin-right: auto;
-    width: 50%;
+    width: 20%;
   }
-  
-  /* Center the avatar image inside this container */
-  /*
-  .imgcontainer {
-    text-align: center;
-    margin: 24px 0 12px 0;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-    border-radius: 20%;
-  }*/
-  
-  /* Avatar image */
-  /*
-  img.avatar {
-    width: 40%;
-    border-radius: 50%;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-    width: 50%;
-  }*/
+
   
   /* password and user name container */
   .container {
-    padding: 2px;
+    padding: 1px;
     display: block;
     margin-left: auto;
     margin-right: auto;
     width: 40%;
+    border-radius: 12px;
   }
 
   label {
+    margin-left: 35px;
     color: black;
-    font-family:arial;
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
-
+    line-height: -3ex;
+    font-family: "Lucida Console", "Courier New", monospace;
+    float: left;
+    width: 3em;
+    margin-right: -7em;
+    
   }
+
+  #formItem label {
+    text-align:center;
+    line-height:650%;
+    font-size:.85em;
+}
   
+
+
   /* The "Forgot password" text */
  /* span.psw {
     float: right;
@@ -110,13 +108,14 @@ body {
     margin-right: auto;
   } */
   
-  /* Change styles for span and cancel button on extra small screens */
+  /* Change styles for span and cancel button on extra small screens 
   @media screen and (max-width: 300px) {
     span.psw {
       display: block;
       float: none;
     }
     .cancelbtn {
-      width: 100%;
+      width: 50%;
+      padding: 5px 8px;
     }
-  }
+  }*/
