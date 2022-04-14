@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="webclient.css">
+<title>Page Title</title>
+
+
+
+<body>
+    <!-- image-->
+    <img src="loggin.jpg" id="log" alt="LA" class="center">
+
+        <!-- buttons-->
+
+    <button onclick="location.href='chat.html'">Click Me</button>
+    <button id="transfer">tran</button>
+
+    <!-- continer for password and user name-->
+    <div class="container">
+        <label for="uname" id="username"><b>Username</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="nick" id="nickname"><b>Nickname</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="pic" id="picture"><b>Picture</b></label>
+        <input type="text" placeholder="Enter Username" name="uname" required>
+
+        <label for="psw"><b>Password</b></label>
+        <input type="password" placeholder="Enter Password" name="psw" required>
+
+        <button type="submit" id="loginButton">Login</button>
+        <label>
+            <input type="checkbox" checked="checked" name="remember"> Remember me
+        </label>
+    </div>
+
+    <div class="container" style="background-color:#50807d">
+        <button type="button" class="cancelbtn">Cancel</button>
+        <span class="psw">Forgot <a href="#">password?</a></span>
+    </div>
+
+<script src="webclient.js"></script>
+</body>
+
+</html>
