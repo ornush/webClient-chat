@@ -1,30 +1,30 @@
 <!DOCTYPE html>
-<html lang="en">
-<meta charset="UTF-8">
-<link rel="stylesheet" href="login.css">
-<title>Login</title>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="login.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Login</title>
+    </head>
 
-
-
-<body>
+    <body>
+    <script src="login.js"></script>
     <!-- image-->
     <img src="loggin.jpg" id="log" alt="LA" class="centerpicture">
-    <!-- buttons-->
-    <!-- <button onclick="location.href='chat.html'">Click Me</button> -->
 
-    <!-- continer for  user name and password-->
+
+    <!-- continer for user name and password-->
     <div class="container">
         <br>
         <label for="uname" id="username"><b>Username</b></label>
-        <input type="text" placeholder="Enter Username" name="uname" required>
+        <input id="uname" type="text" placeholder="Enter Username" name="uname">
 
         <label for="psw"><b>Password</b></label>
-        <input type="password" placeholder="Enter Password" name="psw" required>
-        <!-- <label id="rem"><input type="checkbox" checked="checked" id="rememberme" name="remember"> Remember me</label> -->
-        <!-- <br> -->
-        <button type="submit" id="loginButton" onclick="location.href='chat.html'"> Login</button>
+        <input id="psw" type="password" placeholder="Enter Password" name="psw">
 
-
+        <!-- buttons-->
+        <!-- <button type="submit" id="loginButton" onclick="location.href='chat.html'"> Login</button> -->
+        <button type="submit" id="loginButton" onclick="signIn()"> Login</button>
     </div>
 
     <div class="container">
@@ -33,7 +33,5 @@
         <span class="psw">Not registered? <a href="webclient.html">Click here</a></span>
     </div>
 
-    <script src="webclient.js"></script>
-</body>
-
+    </body>
 </html>
