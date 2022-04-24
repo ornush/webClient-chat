@@ -1,3 +1,13 @@
 body {
-    background-color: green;
+  background-color: #8af6e6;
+      /* background-image: url(background.png); */
+}
+.cats {
+    width: 20px;
+    height: 12px;
+  }
+
+  img, svg {
+    vertical-align: middle;
+    width: 130px;
 }

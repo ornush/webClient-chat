@@ -1,37 +1,76 @@
 <!DOCTYPE html>
-<html>
-    <head>
-    <meta charset="utf-8">
-    <link rel="stylesheet" href="login.css">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Login</title>
-    </head>
+<html lang="en">
+<meta charset="UTF-8">
+<link rel="stylesheet" href="webclient.css">
+<title>Sign Up</title>
 
-    <body>
+<meta name="viewport" content="width=device-width, initial-scale=3.0">
+
+<body>
+    <section id="intro">
+        <div class="left-col">
+            <img src="loggin.jpg" id="log" alt="LA" class="centerpicture">
+
+            <h1>Login <br> and start chatting! </h1>
+            <p>fill up yor details -> </p>
+            <!-- image-->
+            <!-- buttons-->
+            <!-- <button onclick="location.href='chat.html'">Click Me</button> -->
+        </div>
+
+
+        <div class="container"></div>
+        <div class="right-col">
+            <!-- <div class="top-box">
+                <p> <span> ma rashum po </span>try to jouin!</p>
+            </div> -->
+
+            <div class="form-container">
+                <!--form-->
+                <!-- <div class="text-fields"></div> -->
+                <form action="#">
+                    <div class="field-group">
+                        <label for="uname" id="username"><b>Username</b></label>
+                        <input type="text" placeholder="Enter Username" id="input-name" name="username" required>
+                        <!-- <img src="icon-error.jpg" alt="error-image" class="error-icon"> -->
+                        <!-- <p class="error-text" id="demo">FIrst name cant be empty</p> -->
+                        <!-- <p id="demo"></p> -->
+                        <div id="error"></div>
+
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="pswd" required>
+                        <div id="error3"></div>
+
+                        <p id="refresh" style="color:red;"><b> if you want to fill your details and try again please
+                                refresh the page</b></p>
+                                <span class="psw">Not registered? <a href="webclient.html">Click here</a></span>
+
+                        <button type="submit" id="signUpButton">Login</button>
+
+                        <!-- onclick="redirect();" -->
+                        <!-- <label><input type="checkbox" checked="checked" id="rememberme" name="remember" style="color:white"> Remember me</label> -->
+                    </div>
+                </form>
+
+
+            </div>
+
+
+        </div>
+    </section>
+
+
+
+
+
+    <!-- <div class="container" style="background-color:#000000"> -->
+    <!-- <button type="button" class="cancelbtn">Cancel</button> -->
+    <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+    <!-- </div> -->
+
     <script src="login.js"></script>
-    <!-- image-->
-    <img src="loggin.jpg" id="log" alt="LA" class="centerpicture">
+    <!-- <script src="chat.js"></script> -->
 
+</body>
 
-    <!-- continer for user name and password-->
-    <div class="container">
-        <br>
-        <label for="uname" id="username"><b>Username</b></label>
-        <input id="uname" type="text" placeholder="Enter Username" name="uname">
-
-        <label for="psw"><b>Password</b></label>
-        <input id="psw" type="password" placeholder="Enter Password" name="psw">
-
-        <!-- buttons-->
-        <!-- <button type="submit" id="loginButton" onclick="location.href='chat.html'"> Login</button> -->
-        <button type="submit" id="loginButton" onclick="signIn()"> Login</button>
-    </div>
-
-    <div class="container">
-        <!-- <button type="button" class="cancelbtn">Cancel</button> -->
-
-        <span class="psw">Not registered? <a href="webclient.html">Click here</a></span>
-    </div>
-
-    </body>
 </html>

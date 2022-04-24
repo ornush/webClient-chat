@@ -1,0 +1,22 @@
+{
+  "name": "webClient-chat",
+  "version": "1.0.0",
+  "description": "WebClient Project",
+  "main": "webClient.js",
+  "type": "module",
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ornush/webClient-chat.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ornush/webClient-chat/issues"
+  },
+  "homepage": "https://github.com/ornush/webClient-chat#readme"
+}

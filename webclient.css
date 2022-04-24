@@ -16,21 +16,28 @@ html {
 	font-family: 'Poppins', sans-serif;
 }
 
+
+#log {
+  width: 240px;
+  /*height: 250x;*/
+  border-radius: 80%;
+  border: 2px solid black;
+  margin-left: 250px;
+}
 #intro {
 	min-height: 100vh;
 	width: 90%;
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	background-image: url(loggin.jpg);
   height: 100%;
   width: 100%;
 
   /* Center and scale the image nicely */
-  background-position: center;
+  /* background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-	padding: 100px 0;
+	padding: 100px 0; */
 }
 .container {
 	display: flex;
@@ -45,31 +52,41 @@ html {
 
    /* password and user name container */
    .form-container {
-    background-color:blue;
+    background-color:rgb(255, 255, 255);
     padding: 44px;
     display: block;
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: -26px;
+    margin-right: 38px;
     width:70%;
-    opacity: 0.6;
+    opacity: 0.8;
 
     border-radius: 12px;
   }
   
   .left-col {
     flex: 1;
-    margin-bottom: 50px;
+    margin-top: -150px;
+    display: block;
+    align-items: center;
+    padding-right: 190px;
+    
+
   }
   .left-col h1 {
     color: white;
     font-size: 2.5rem;
     line-height: 3rem;
     margin-bottom: 2rem;
+    text-align:center;
+
   }
   .left-col p {
     color: white;
     font-size: 1.3rem;
     line-height: 1.9rem;
+    text-align:center;
+    border-color: black;
+
     /* max-width: 500px; */
   }
   
@@ -77,6 +94,8 @@ html {
   .field-group {
     position: relative;
     margin-bottom: 25px;
+    opacity: none;
+
   }
   /* Bordered form */
   /* Full-width inputs */
@@ -100,14 +119,14 @@ html {
   }
   
   /* Set a style for all buttons */
-  button {
+  #signUpButton {
     background-color:black;
     color: white;
     padding: 10px 10px;
     margin: 8px 0;
-    border-radius: 25px;
+    border-radius: 20px;
     cursor: pointer;
-    width: 20%;
+    width: 30%;
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -179,16 +198,37 @@ html {
 	}
 	.left-col {
 		text-align: left;
-		padding-right: 50px;
+		padding-right: 75px;
 	}
 	.left-col h1 {
 		font-size: 3rem;
-    font-color: white;
+    color: white;
 		line-height: 3.5rem;
+    -webkit-text-stroke: 2px black; /* width and color */
+
+
 	}
 	.left-col p {
-		font-size: 1.1rem;
+		font-size: 2.1rem;
+    color: black;
 	}
+  #error{
+		font-size: 0.9rem;
+    color: red;
+  }
+  #error2{
+		font-size: 0.9rem;
+    color: red;
+
+  }
+  #error3{
+		font-size: 0.9rem;
+    color: red;
+
+  }
+  #refresh{
+    text-align: center;
+  }
 	.right-col {
 		max-width: 500px;
 	}

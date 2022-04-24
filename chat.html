@@ -20,7 +20,7 @@
     <title>Hello, world!</title>
 </head>
 
-<body>
+<body id="body">
     <!-- <h1>Hello, world!</h1> -->
 
     <!-- Grid copy -->
@@ -36,13 +36,25 @@
         </div>
     </div>
 
+  
 
+    <div>
+
+        
+        
+        <!-- <h1>GeeksforGeeks</h1> -->
+        <!-- <ul id="myList"></ul> -->
+            <!-- <p>In here i want <span id="placeholder-1"></span></p>
+            <p>In here i want <span id="placeholder-2"></span></p> -->
+                                <!-- <img id="myPic" alt="error-image"> -->
+
+        </div>
 
     <!-- components- list copy -->
     <ol class="list-group " style="width: 20rem;">
                 <li class="list-group-item d-flex justify-content-between align-items-start">
             <div class="ms-2 me-auto">
-                <div class="fw-bold">Subheading</div>
+                <div class="fw-bold"  id="myList">Subheading</div>
                 Content for list item
             </div>
             <span class="badge bg-primary rounded-pill">14</span>
@@ -68,7 +80,26 @@
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
 
+        <!-- <script src="webclient.js"></script> -->
+       
 
 </body>
+<script src="chat.js"></script>
+<body onload="GFG_Fun()" class="cats"></body>
+
+
+
+<!-- <script>
+    // var up = document.getElementById('GFG_UP');
+    // up.innerHTML = "Click on the button to add image element";
+    // var down = document.getElementById('GFG_DOWN');
+    
+    function GFG_Fun() {
+        var img = document.createElement('img');
+        img.src ='loggin.jpg';
+        document.getElementById('body').appendChild(img);
+        // down.innerHTML = "Image Element Added.";
+    }
+</script> -->
 
 </html>

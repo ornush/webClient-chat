@@ -2,26 +2,24 @@
 <html lang="en">
 <meta charset="UTF-8">
 <link rel="stylesheet" href="webclient.css">
-<title>webclient chat</title>
+<title>Sign Up</title>
 
-
+<meta name="viewport" content="width=device-width, initial-scale=3.0">
 
 <body>
     <section id="intro">
-
-
-
         <div class="left-col">
-            <h1>Sign up and start chatting!</h1>
-               <p>fill up yor details </p>
+            <img src="loggin.jpg" id="log" alt="LA" class="centerpicture">
+
+            <h1>Sign up <br> and start chatting! </h1>
+            <p>fill up yor details -> </p>
             <!-- image-->
-            <!-- <img src="loggin.jpg" id="log" alt="LA" class="centerpicture"> -->
             <!-- buttons-->
             <!-- <button onclick="location.href='chat.html'">Click Me</button> -->
         </div>
+
+
         <div class="container"></div>
-
-
         <div class="right-col">
             <!-- <div class="top-box">
                 <p> <span> ma rashum po </span>try to jouin!</p>
@@ -33,38 +31,47 @@
                 <form action="#">
                     <div class="field-group">
                         <label for="uname" id="username"><b>Username</b></label>
-                    <input type="text" placeholder="Enter Username" id="input-name" name="uname" required>
-                    <!-- <img src="icon-error.jpg" alt="error-image" class="error-icon"> -->
-                    <!-- <p class="error-text">FIrst name cant be empty</p> -->
+                        <input type="text" placeholder="Enter Username" id="input-name" name="username" required>
+                        <!-- <img src="icon-error.jpg" alt="error-image" class="error-icon"> -->
+                        <!-- <p class="error-text" id="demo">FIrst name cant be empty</p> -->
+                        <!-- <p id="demo"></p> -->
+                        <div id="error"></div>
 
 
-                    <label for="nick" id="nickname"><b>Nickname</b></label>
-                    <input type="text" placeholder="Enter Nickname" name="uname" required>
 
-                    <label for="psw"><b>Password</b></label>
-                    <input type="password" placeholder="Enter Password" name="psw" required>
+                        <label for="nick" id="nickname"><b>Nickname</b></label>
+                        <input type="text" placeholder="Enter Nickname" name="nickname" required>
+                        <div id="error2"></div>
 
-                    <label for="file-upload" id="picture-upload"><b>Picture</b></label>
-                    <input type="file" placeholder="Upload Picture" id="picture-up" name="uname" required>
-</div>
-                    <p>If you want to try again please refresh the page</p>
 
-                    <button type="submit" id="signUpButton">SignUp</button>
+                        <label for="psw"><b>Password</b></label>
+                        <input type="password" placeholder="Enter Password" name="pswd" required>
+                        <div id="error3"></div>
 
-                    <!-- onclick="redirect();" -->
-                    <!-- <label><input type="checkbox" checked="checked" id="rememberme" name="remember" style="color:white"> Remember me</label> -->
+
+                        <label for="file-upload" id="picture-upload"><b>Picture</b></label>
+                        <input type="file" placeholder="Upload Picture" accept="image/*" id="picture-up" name="picture"
+                            required>
+                        <p id="refresh" style="color:red;"><b> if you want to fill your details and try again please
+                                refresh the page</b></p>
+
+                        <button type="submit" id="signUpButton">SignUp</button>
+
+                        <!-- onclick="redirect();" -->
+                        <!-- <label><input type="checkbox" checked="checked" id="rememberme" name="remember" style="color:white"> Remember me</label> -->
+                    </div>
                 </form>
 
 
             </div>
 
 
+        </div>
     </section>
 
 
 
 
-    </div>
 
     <!-- <div class="container" style="background-color:#000000"> -->
     <!-- <button type="button" class="cancelbtn">Cancel</button> -->
@@ -72,6 +79,8 @@
     <!-- </div> -->
 
     <script src="webclient.js"></script>
+    <!-- <script src="chat.js"></script> -->
+
 </body>
 
 </html>
