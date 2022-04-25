@@ -6,6 +6,8 @@
 var validname = 1
 var validpass = 1
 var validnick = 1
+var validConfirmpass = 1
+var passCheck;
 var myFormData = [];   //declare an array
 
 
@@ -20,7 +22,6 @@ form.addEventListener('submit', (e) => {
     // let errorMsg;
 
     let messages = []
-
     console.log("iddd|" + (input.name) + "|")
     inVal.push(input.value);
     // localStorage.setItem('username', input.value);
@@ -56,6 +57,8 @@ form.addEventListener('submit', (e) => {
     //password
     
     if (input.name == "pswd") {
+      passCheck=input.value;
+      console.log("chekkkkk->>"+passCheck)
       if (input.value.length < 4) {
         // console.log(input.length+"length of paaword")
         // console.log("Error-password should be atleast with 4 charachters");
@@ -63,10 +66,30 @@ form.addEventListener('submit', (e) => {
         messages.push('password should be atleast 4 charachters')
         errorElement.innerText = messages.join(', ')
         validpass = 0
+        
+        
 
       }
       // console.log("password");
     }
+///confirmation password
+    if (input.name == "confirmPsw") {
+      // console.log("chekkkkk innnnn->>"+passCheck)
+      // console.log("chekkkkk innnnn->>"+input.value)
+
+      if (passCheck!=input.value) {
+        // console.log(input.length+"length of paaword")
+        // console.log("Error-password should be atleast with 4 charachters");
+        const errorElement = document.getElementById('error4')
+        messages.push('the password is not correct')
+        errorElement.innerText = messages.join(', ')
+        validConfirmpass = 0
+
+      }
+      // console.log("password");
+    }
+
+
     //picture we dont need
     // if (input.name == "picture") {
     //   if (input.value.length <= 0) {
@@ -83,7 +106,7 @@ form.addEventListener('submit', (e) => {
 function redirect(event) {
   forr();
   // console.log("validname--->>>>" + typeof (validname));
-  if ((validname == 1) && (validnick == 1) &&  (validpass==1)) {
+  if ((validname == 1) && (validnick == 1) &&  (validpass==1)&&(validConfirmpass ==1)) {
     window.location.href = "chat.html";
   }
 }

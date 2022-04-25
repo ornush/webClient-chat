@@ -60,6 +60,8 @@ form.addEventListener('submit', (e) => {
  //passing to another html file -to chat.html
   redirect();
 
+  
+
 });
 
 //redirect to another html page

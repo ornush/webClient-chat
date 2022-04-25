@@ -5,7 +5,7 @@ the chat includes masseges like sound records, pictures, files, videos and text
 we have used js,HTML,bootsrap and CSS.
 
 what you'll need to install:
-1.bsoivbseiuoibeivo
+1.run npm init in the folder cmd
 2.kfsbviusavejvaie
 
 
