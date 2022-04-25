@@ -21,7 +21,7 @@ form.addEventListener('submit', (e) => {
 
     let messages = []
 
-    console.log("iddd|" + (input.name) + "|")
+    // console.log("iddd|" + (input.name) + "|")
     inVal.push(input.value);
     // localStorage.setItem('username', input.value);
 

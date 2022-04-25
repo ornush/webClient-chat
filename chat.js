@@ -32,22 +32,27 @@
 
 // }
 
-document.body.onload = addElement;
 
-function addElement () {
-  // create a new div element
-  const newDiv = document.createElement("div");
 
-  // and give it some content
-  const newContent = document.createTextNode("Hi there and greetings!");
 
-  // add the text node to the newly created div
-  newDiv.appendChild(newContent);
+// document.body.onload = addElement;
 
-  // add the newly created element and its content into the DOM
-  const currentDiv = document.getElementById("div1");
-  document.body.insertBefore(newDiv, currentDiv);
-}
+// function addElement () {
+//   // create a new div element
+//   const newDiv = document.createElement("div");
+
+//   // and give it some content
+//   const newContent = document.createTextNode("Hi there and greetings!");
+
+//   // add the text node to the newly created div
+//   newDiv.appendChild(newContent);
+
+//   // add the newly created element and its content into the DOM
+//   const currentDiv = document.getElementById("div1");
+//   document.body.insertBefore(newDiv, currentDiv);
+// }
+
+
 
 
 // const user1 = ["Michael", "mike","loggin.jpg"];
@@ -61,27 +66,30 @@ function addElement () {
 
 
 
-// var userName = window.localStorage.getItem("0");  
-// console.log(userName);
-// console.log("sgedgbes");
+var userName = window.localStorage.getItem("0");  
+console.log(userName);
+console.log("sgedgbes"); 
 
-// var nickName = window.localStorage.getItem("1");  
-// console.log(nickName);
+var nickName = window.localStorage.getItem("1");  
+console.log(nickName);
 
-// var passWord = window.localStorage.getItem("2");  
-// console.log(passWord);
+var passWord = window.localStorage.getItem("2");  
+console.log(passWord);
 
-// var picture = window.localStorage.getItem("3");  
-// console.log(picture);
+var picture = window.localStorage.getItem("3");  
+console.log(picture);
 
-// let data = [userName, nickName, passWord, picture ];
-// let list = document.getElementById("myList");
+let data = [userName, nickName, passWord, picture];
+
+
+
+let list = document.getElementById("myList");
   
-// data.forEach((item)=>{
-//   let ul = document.createElement("ul");
-//   ul.innerText = item;
-//   list.appendChild(ul);
-// })
+data.forEach((item)=>{
+  let ul = document.createElement("ul");
+  ul.innerText = item;
+  list.appendChild(ul);
+})
 
 
 // // let picture1 = document.getElementById("myPic");
