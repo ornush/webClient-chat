@@ -17,7 +17,7 @@
     <section id="intro">
         <div class="left-col">
 
-            
+
             <img src="loggin.jpg" id="log" alt="LA" class="centerpicture">
 
             <h1>Sign up <br> and start chatting! </h1>
@@ -54,7 +54,7 @@
                         <input type="password" placeholder="Enter Password" name="pswd" required>
                         <div id="error3"></div>
 
-                         
+
                         <label for="confirmPsw"><b> Confirm Password</b></label>
                         <input type="password" placeholder="Enter Password" name="confirmPsw" required>
                         <div id="error4"></div>
@@ -63,16 +63,31 @@
                         <input type="file" placeholder="Upload Picture" accept="image/*" id="picture-up" name="picture"
                             required>
  -->
- 
 
-                              <!-- picture button -->
-                              <label for="picture-upload"><b>Upload Your Picture -></b> <i class="bi bi-camera"></i></label>
+
+                        <!-- picture button -->
+                        <label for="picture-upload"><b>Picture</b> <i class="bi bi-camera"></i></label>
                         <input type="file" accept="image/*" id="picture-upload" name="picture" required>
+                        <p id="error_msg" style="color:red; font-size: 20px; font-weight: bold;">
+                        </p>
 
-                        <p id="refresh" style="color:red; display: inline block;"><b> if you want to fill your details and try again please
+                        <script>
+                            var down = document.getElementById('error_msg');
+                            var file = document.getElementById("picture-upload");
+                            function ErrorMsg() {
+                                if (file.files.length == 0) {
+                                    down.innerHTML = "No files selected";
+                                } else {
+                                    down.innerHTML = "Some file is selected";
+                                }
+                            }
+                        </script>
+
+                        <p id="refresh" style="color:red; display: inline block;"><b> if you want to fill your details
+                                and try again please
                                 refresh the page</b></p>
 
-                        <button type="submit" id="signUpButton">SignUp</button>
+                        <button type="submit" id="signUpButton" onclick="ErrorMsg()">SignUp</button>
 
                         <!-- onclick="redirect();" -->
                         <!-- <label><input type="checkbox" checked="checked" id="rememberme" name="remember" style="color:white"> Remember me</label> -->

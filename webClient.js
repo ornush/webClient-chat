@@ -95,7 +95,6 @@ form.addEventListener('submit', (e) => {
       //   console.log("Error-user name needs to be atleast with 6 charachters");
       // }
 
-      /////  תנאי לתמונהההההההההה אם יש.אין
       console.log("full path")
 
      var pic= document.getElementById("picture-upload").files[0].name; 

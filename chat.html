@@ -15,14 +15,30 @@
     <!-- Bootstrap modal -->
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 
     <link href=" chat.css" rel="stylesheet">
     <title>chat</title>
 </head>
 
 <body>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    
     <div class="container">
         <!-- <button onclick="addUser(users[6])">Click</button> -->
         <div class="row no-gutters">
@@ -33,39 +49,39 @@
 
 
 
-<!-- ///////////modal search-->
+                    <!-- ///////////modal search-->
 
-<a href="#my_modal" data-toggle="modal" data-id="1">
+                    <a href="#my_modal" data-toggle="modal" data-id="1">
 
-    <i class="bi bi-person-plus" style="color: black; float: right;"></i>
-</a>
+                        <i class="bi bi-person-plus" style="color: black; float: right;"></i>
+                    </a>
 
-<div class="modal" id="my_modal">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-        <h4 class="modal-title">Add New Contant</h4>
-      </div>
+                    <div class="modal" id="my_modal">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-header">
+                                    <button type="button" class="close" data-dismiss="modal"><span
+                                            aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                                    <h4 class="modal-title">Add New Contant</h4>
+                                </div>
 
-      <div class="modal-body">
-        <div class="form-group">
-          <!-- <label for="txt" class="control-label">Text:</label> -->
-          <input id="txt" class="form-control" autofocus="autofocus" placeholder="Contant's identifier"/>
-        </div>
-     </div>
+                                <div class="modal-body">
+                                    <div class="form-group">
+                                        <!-- <label for="txt" class="control-label">Text:</label> -->
+                                        <input id="txt" class="form-control" autofocus="autofocus"
+                                            placeholder="Contant's identifier" />
+                                    </div>
+                                </div>
 
-     <div class="modal-footer">
-       <button id="save" type="save" class="btn btn-primary" data-dismiss="modal">Add</button>
-       <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-     </div>
-   </div>
- </div>
-</div>
-
-
-
-<!-- ///////////modal  finsh -->
+                                <div class="modal-footer">
+                                    <button id="save" type="save" class="btn btn-primary"
+                                        data-dismiss="modal">Add</button>
+                                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- ///////////modal  finsh -->
 
 
 
@@ -77,7 +93,7 @@
 
                 </div>
 
-               
+
 
                 <!-- class of each friend -->
                 <div class="contacts" id="contacts"></div>
@@ -105,61 +121,89 @@
                     <div class="row">
                         <div class="col-12">
                             <div class="chat-box-tray">
-                                <!-- icons -->
                                 <input type="text" placeholder="Type your message here..." id="myMsg">
 
-                                <!-- record button -->
-                                <button id="record1">
-                                    <i class="bi bi-mic" style="color: black; float: right;"></i></button>
+                                        <!-- icons -->
 
-                                <button id="record2">
-                                    <i class="bi bi-mic-mute" style="color: red; float: right;"></i></button>
+                                <div class="dropup">
+                                    <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
+                                        data-toggle="dropdown">
+                                        <i class="bi bi-paperclip" style="color: black; "></i></button>
+                                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
 
-                                <script>
-                                    record1.onclick = () => {
-                                        navigator.mediaDevices.getUserMedia({ audio: true })
-                                            .then(stream => {
-                                                mediaRecorder = new MediaRecorder(stream);
-                                                mediaRecorder.start();
-                                                chuck = []
-                                                mediaRecorder.addEventListener("dataavailable", e => {
-                                                    chuck.push(e.data);
-                                                })
-                                                mediaRecorder.addEventListener("stop", e => {
-                                                    blob = new Blob(chuck)
-                                                    audio_url = URL.createObjectURL(blob)
-                                                    audio = new Audio(audio_url)
-                                                    audio.setAttribute("controls", 1)
-                                                    recordUpload(audio);
-                                                })
-                                            })
-                                    }
-                                    record2.onclick = () => {
-                                        mediaRecorder.stop();
-                                        mediaRecorder.stream.getTracks() // get all tracks from the MediaStream
-                                            .forEach(track => track.stop()); // stop each of them                                        
-                                    }
-                                </script>
-
-                                <!-- picture button -->
-                                <label for="picture-upload"> <i class="bi bi-camera"
-                                        style="color: black; float: right;"></i></label>
-                                <input type="file" accept="image/*" id="picture-upload" name="picture"
-                                    onchange="pictureUpload()" required>
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                                                <!-- picture button -->
+                                                <label for="picture-upload"> <i class="bi bi-image"
+                                                        style="color: black; float: right;"></i></label>
+                                                <input type="file" accept="image/*" id="picture-upload" name="picture"
+                                                    onchange="pictureUpload()" required>
+                                            </a></li>
 
 
-                                <!-- video button -->
-                                <label for="video-upload"> <i class="bi bi-camera-reels"
-                                        style="color: black; float: right;"></i></label>
-                                <input type="file" accept="video/*" id="video-upload" name="video"
-                                    onchange="videoUpload()" required>
 
 
-                                <!-- text button -->
-                                <label for="txt-upload"> <i class="bi bi-paperclip"
-                                        style="color: black; float: right;"></i></label>
-                                <input type="file" accept=".txt" id="txt-upload" name="txt" onchange="textUpload()"
-                                    required>
+                                            
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                                                <!-- video button -->
+                                                <label for="video-upload"> <i class="bi bi-camera-reels"
+                                                        style="color: black; float: right;"></i></label>
+                                                <input type="file" accept="video/*" id="video-upload" name="video"
+                                                    onchange="videoUpload()" required>
+                                            </a></li>
+
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                                                <label for="txt-upload"> <i class="bi bi-file-text"
+                                                        style="color: black; float: right;"></i></label>
+                                                <input type="file" accept=".txt" id="txt-upload" name="txt"
+                                                    onchange="textUpload()" required>
+                                            </a>
+                                        </li>
+                                        <!-- <li role="presentation" class="divider"></li> -->
+
+                                        <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
+                                                <!-- record button -->
+                                                <button id="record1">
+                                                    <i class="bi bi-mic"
+                                                        style="color: black; float: right;"></i></button>
+
+                                                <button id="record2">
+                                                    <i class="bi bi-mic-mute"
+                                                        style="color: red; float: right;"></i></button>
+
+                                                <script>
+                                                    record1.onclick = () => {
+                                                        navigator.mediaDevices.getUserMedia({ audio: true })
+                                                            .then(stream => {
+                                                                mediaRecorder = new MediaRecorder(stream);
+                                                                mediaRecorder.start();
+                                                                chuck = []
+                                                                mediaRecorder.addEventListener("dataavailable", e => {
+                                                                    chuck.push(e.data);
+                                                                })
+                                                                mediaRecorder.addEventListener("stop", e => {
+                                                                    blob = new Blob(chuck)
+                                                                    audio_url = URL.createObjectURL(blob)
+                                                                    audio = new Audio(audio_url)
+                                                                    audio.setAttribute("controls", 1)
+                                                                    recordUpload(audio);
+                                                                })
+                                                            })
+                                                    }
+                                                    record2.onclick = () => {
+                                                        mediaRecorder.stop();
+                                                        mediaRecorder.stream.getTracks() // get all tracks from the MediaStream
+                                                            .forEach(track => track.stop()); // stop each of them                                        
+                                                    }
+                                                </script>
+
+
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+
                                 <i class="bi bi-send" style="color: black; float: right; cursor:pointer;"
                                     onclick="sendButton()"></i>
                             </div>
