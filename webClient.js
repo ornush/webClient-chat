@@ -90,12 +90,19 @@ form.addEventListener('submit', (e) => {
     }
 
 
-    //picture we dont need
-    // if (input.name == "picture") {
-    //   if (input.value.length <= 0) {
-    //     console.log("Error-user name needs to be atleast with 6 charachters");
-    //   }
-    // }
+    if (input.name == "picture") {
+      // if (input.value.length <= 0) {
+      //   console.log("Error-user name needs to be atleast with 6 charachters");
+      // }
+
+      /////  תנאי לתמונהההההההההה אם יש.אין
+      console.log("full path")
+
+     var pic= document.getElementById("picture-upload").files[0].name; 
+     inVal[4]=pic;
+console.log("full path->"+ inVal[4])
+    }
+
   });
  //passing to another html file -to chat.html
   redirect();
@@ -119,17 +126,25 @@ function forr() {
     console.log(inVal[i]);
     myFormData.push(inVal[0]);
 //passingg the values to chat.html
-    var userName = inVal[0];  
-    window.localStorage.setItem("0", userName);  
+var userName = inVal[0];  
+window.localStorage.setItem("0", userName);  
 
-    var nickName = inVal[1];  
-    window.localStorage.setItem("1", nickName);  
+var nickName = inVal[1];  
+window.localStorage.setItem("1", nickName);  
 
-    var passWord = inVal[2];  
-    window.localStorage.setItem("2", passWord);  
+var passWord = inVal[2];  
+window.localStorage.setItem("2", passWord);  
 
-    var picture = inVal[3];  
-    window.localStorage.setItem("3", picture);  
+var conf = inVal[3];  
+window.localStorage.setItem("3", conf);  
+
+var picture = inVal[4];  
+window.localStorage.setItem("4", picture);  
+
+// var signUp="signUp"
+window.localStorage.setItem("5", "signup");  
+
+    
    
   }
   console.log("loop");

@@ -158,7 +158,7 @@ function myProfile(user) {
   let secondDiv = document.createElement("div");
   let img = document.createElement("img");
   let span = document.createElement("span");
-  let i = document.createElement("i");
+  // let i = document.createElement("i");
   let h = document.createElement("h5");
   h.classList.add("uName");
   h.innerText = user.nickname;
@@ -168,11 +168,11 @@ function myProfile(user) {
   img.setAttribute('alt', "profile image");
   secondDiv.classList.add("text1");
   span.classList.add("settings-tray--right");
-  i.classList.add("bi", "bi-person-plus");
-  i.style = "color: black; float: right;";
+  // i.classList.add("bi", "bi-person-plus");
+  // i.style = "color: black; float: right;";
   secondDiv.appendChild(h);
   firstDiv.appendChild(img);
-  span.appendChild(i);
+  // span.appendChild(i);
   firstDiv.appendChild(span);
   firstDiv.appendChild(h);
   document.getElementById("myUser").appendChild(firstDiv);
@@ -414,36 +414,86 @@ function addUser(user) {
 }
 
 // delete //
-for(let user of users){
-  console.log(user);
-}
+// for(let user of users){
+//   console.log(user);
+// }
 
 
 
 
 //////////////////////////////////////////////////////////
-var userName = window.localStorage.getItem("0");
-// console.log(userName);
-// console.log("sgedgbes"); 
+var userName = window.localStorage.getItem("0");  
+console.log(userName);
+console.log("sgedgbes"); 
 
-var nickName = window.localStorage.getItem("1");
-// console.log(nickName);
+var nickName = window.localStorage.getItem("1");  
+console.log(nickName);
 
-var passWord = window.localStorage.getItem("2");
-// console.log(passWord);
+var passWord = window.localStorage.getItem("2");  
+console.log("----"+passWord);
 
-var picture = window.localStorage.getItem("3");
-// console.log(picture);
+var conf = window.localStorage.getItem("3");  
+console.log(conf);
 
-var signUp = window.localStorage.getItem("4");
-// console.log(signUp);
+var picture = window.localStorage.getItem("4");  
+console.log("__picturwe->>"+picture);
 
-let data = [userName, nickName, passWord, picture];
+// let pic= document.getElementById("log");
+// let pic3 = document.createElement("img");
+// pic3.src=picture;
+// pic3.innerText = pic3.src;
+// console.log("__pic3 srccc->>"+pic3.src);
+// pic.appendChild(pic3);
 
 
-for (let u of users) {
-  if (data[0] === u.username) {
-    myProfile(u);
-    displayContacts(u);
+
+var signUp = window.localStorage.getItem("5");  
+console.log("signnnnnn"+signUp);
+
+let data = [userName, nickName, passWord];
+
+
+
+
+
+
+
+
+// for (let u of users) {
+//   if (data[0] === u.username) {
+//     myProfile(u);
+//     displayContacts(u);
+//   }
+// }
+
+
+if( passWord == "login"){// we are in login
+
+  console.log("we are in login")
+  for (let u of users) {
+    if (data[0] === u.username) {
+      myProfile(u);
+      displayContacts(u);
+    }
   }
+
+
 }
+else{// we are in signup
+
+  console.log("we are in signup")
+
+}
+
+$('#my_modal').on('show.bs.modal', function(e) { 
+  var id = $(e.relatedTarget).data('id');
+  var that = $(this);
+  $(this).find('button[id="save"]').click(function() {
+    var txt = that.find('input[id="txt"]').val();
+    console.log(txt +"search")
+    // alert(id);
+    // alert(txt);
+   });
+  
+});
+

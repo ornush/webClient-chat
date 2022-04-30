@@ -283,3 +283,14 @@ button {
   position: relative;
   top: 10px;
 }
+
+.modal-header {
+    padding: -47p;
+    border-bottom: -15px solid #e5e5e5;
+    display: flex;
+  }
+
+  .modal-header .close {
+    /* margin-top: -9px; */
+    display: none;
+}

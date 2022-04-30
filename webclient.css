@@ -6,6 +6,7 @@
 	box-sizing: border-box;
   margin-top: -1px;
   
+  
 
 }
   
@@ -259,4 +260,19 @@ html {
 		margin-top: 20px;
 		font-size: .7rem;
 	}
+}
+
+/* pictureeeeeeeeee */
+#picture-upload{
+  display: none;
+  visibility: none;
+}
+
+.field-group i {
+  display: contents;
+  background: #eee;
+  align-items: baseline;
+  align-items: center;
+  font-size: 30px;
+  color: black; float: right;
 }
