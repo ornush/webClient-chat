@@ -1,7 +1,7 @@
 //alert("connected to webClinet.html")
 
 // shift+alt+f -arrange the code
- var inVal = [];
+var inVal = [];
 // name & nick name
 var validname = 1
 var validpass = 1
@@ -9,7 +9,13 @@ var validnick = 1
 var validConfirmpass = 1
 var passCheck;
 var myFormData = [];   //declare an array
+var usernameTaken = 0;
 
+// users //
+const users = [
+  { username: 'Brian1' }, { username: 'Trevor1' }, { username: 'Jonathan1' },
+  { username: 'Joshua1' }, { username: 'Ruth1' }, { username: 'Anne1' },
+  { username: 'Abigail1' }];
 
 const form = document.querySelector('.form-container form');
 const inputs = document.querySelectorAll('form input');
@@ -22,7 +28,7 @@ form.addEventListener('submit', (e) => {
     // let errorMsg;
 
     let messages = []
-    console.log("iddd|" + (input.name) + "|")
+    // console.log("iddd|" + (input.name) + "|")
     inVal.push(input.value);
     // localStorage.setItem('username', input.value);
 
@@ -50,15 +56,14 @@ form.addEventListener('submit', (e) => {
         const errorElement = document.getElementById('error2')
         messages.push('nick name should be atleast 4 charachters')
         errorElement.innerText = messages.join(', ')
-        validname = 0
-
+        validname = 0;
       }
     }
     //password
-    
+
     if (input.name == "pswd") {
-      passCheck=input.value;
-      console.log("chekkkkk->>"+passCheck)
+      passCheck = input.value;
+      // console.log("chekkkkk->>" + passCheck)
       if (input.value.length < 4) {
         // console.log(input.length+"length of paaword")
         // console.log("Error-password should be atleast with 4 charachters");
@@ -66,18 +71,18 @@ form.addEventListener('submit', (e) => {
         messages.push('password should be atleast 4 charachters')
         errorElement.innerText = messages.join(', ')
         validpass = 0
-        
-        
+
+
 
       }
       // console.log("password");
     }
-///confirmation password
+    ///confirmation password
     if (input.name == "confirmPsw") {
       // console.log("chekkkkk innnnn->>"+passCheck)
       // console.log("chekkkkk innnnn->>"+input.value)
 
-      if (passCheck!=input.value) {
+      if (passCheck != input.value) {
         // console.log(input.length+"length of paaword")
         // console.log("Error-password should be atleast with 4 charachters");
         const errorElement = document.getElementById('error4')
@@ -95,15 +100,16 @@ form.addEventListener('submit', (e) => {
       //   console.log("Error-user name needs to be atleast with 6 charachters");
       // }
 
-      console.log("full path")
+      // console.log("full path")
 
-     var pic= document.getElementById("picture-upload").files[0].name; 
-     inVal[4]=pic;
-console.log("full path->"+ inVal[4])
+      // var pic = document.getElementById("picture-upload").files[0].name; //Return back
+      var pic = document.getElementById("picture-upload").files;
+      inVal[4] = pic;
+      console.log("full path->" + inVal[4])
     }
 
   });
- //passing to another html file -to chat.html
+  //passing to another html file -to chat.html
   redirect();
 
 });
@@ -112,54 +118,63 @@ console.log("full path->"+ inVal[4])
 function redirect(event) {
   forr();
   // console.log("validname--->>>>" + typeof (validname));
-  if ((validname == 1) && (validnick == 1) &&  (validpass==1)&&(validConfirmpass ==1)) {
-    window.location.href = "chat.html";
+  if ((validname == 1) && (validnick == 1) && (validpass == 1) && (validConfirmpass == 1)) {
+    if(usernameTaken){
+      alert("This username is already taken");
+    }else{
+      window.location.href = "chat.html";
+    }
   }
 }
 // arrDetails={name:"name",nick:"nick" ,pass:"pass",file:"file"};
 
-  // local storage all the values
+// local storage all the values
 function forr() {
   console.log("loop");
   for (var i = 0; i < 4; i++) {
     console.log(inVal[i]);
     myFormData.push(inVal[0]);
-//passingg the values to chat.html
-var userName = inVal[0];  
-window.localStorage.setItem("0", userName);  
+    //passingg the values to chat.html
+    var userName = inVal[0];
+    window.localStorage.setItem("0", userName);
 
-var nickName = inVal[1];  
-window.localStorage.setItem("1", nickName);  
+    var nickName = inVal[1];
+    window.localStorage.setItem("1", nickName);
 
-var passWord = inVal[2];  
-window.localStorage.setItem("2", passWord);  
+    var passWord = inVal[2];
+    window.localStorage.setItem("2", passWord);
 
-var conf = inVal[3];  
-window.localStorage.setItem("3", conf);  
+    var conf = inVal[3];
+    window.localStorage.setItem("3", conf);
 
-var picture = inVal[4];  
-window.localStorage.setItem("4", picture);  
+    var picture = inVal[4];
+    window.localStorage.setItem("4", picture);
 
-// var signUp="signUp"
-window.localStorage.setItem("5", "signup");  
+    // var signUp="signUp"
+    window.localStorage.setItem("5", "signup");
 
-    
-   
+
+
   }
   console.log("loop");
-  console.log("inVal1-<<<"+inVal[0]);
-  console.log("inVal1-<<<"+inVal[1]);
+  // console.log("inVal1-<<<" + inVal[0]);
+  // console.log("inVal1-<<<" + inVal[1]);
   // console.log("inVal1-<<<"+inVal[0]);
 
 
-  
-
-//   var fso = new ActiveXObject("Scripting.FileSystemObject");
-// var a = fso.CreateTextFile("C:\Users\ornush\source\webClient\webClient-chat\testfile.txt", true);
-// a.WriteLine("This is a test."+inVal[0]);
-// a.Close();
 
 
+  //   var fso = new ActiveXObject("Scripting.FileSystemObject");
+  // var a = fso.CreateTextFile("C:\Users\ornush\source\webClient\webClient-chat\testfile.txt", true);
+  // a.WriteLine("This is a test."+inVal[0]);
+  // a.Close();
+
+  for(let user of users){
+    if(userName == user.username){
+      usernameTaken = 1;
+      return;
+    }
+   }  
 }
 
 // const inputName = document.getElementById("username");

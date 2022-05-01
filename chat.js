@@ -117,16 +117,20 @@
 
 ////////////////////////////////
 
-let usersMsgs = [["Hi"], ["Hello"], ["How are you?"], ["uuuu"], ["zzzz"], ["tttt"]];
+let usersMsgs = [["Hi"], ["Hello"], ["How are you?"], ["uuuu"], ["zzzz"], ["tttt"], ["aaaa"]];
+let contactList = [];
+let allTheOthers = [];
 
 const users = [
-  { username: 'Brian1', nickname: 'Brian', password: 'e1234', picture: "man1.JPG", list: usersMsgs[0], firstClick: true },
-  { username: 'Trevor1', nickname: 'Trevor', password: 'a1234', picture: "man2.JPG", list: usersMsgs[1], firstClick: true },
-  { username: 'Jonathan1', nickname: 'Jonathan', password: 'w1234', picture: "man3.JPG", list: usersMsgs[2], firstClick: true },
-  { username: 'Joshua1', nickname: 'Joshua', password: 's1234', picture: "man4.JPG", list: usersMsgs[3], firstClick: true },
+  { username: 'Brian1', nickname: 'Brian', password: 'a1234', picture: "man1.JPG", list: usersMsgs[0], firstClick: true },
+  { username: 'Trevor1', nickname: 'Trevor', password: 'b1234', picture: "man2.JPG", list: usersMsgs[1], firstClick: true },
+  { username: 'Jonathan1', nickname: 'Jonathan', password: 'c1234', picture: "man3.JPG", list: usersMsgs[2], firstClick: true },
+  { username: 'Joshua1', nickname: 'Joshua', password: 'd1234', picture: "man4.JPG", list: usersMsgs[3], firstClick: true },
   { username: 'Ruth1', nickname: 'Ruth', password: 'e1234', picture: "woman1.JPG", list: usersMsgs[4], firstClick: true },
-  { username: 'Anne1', nickname: 'Anne', password: 'q1234', picture: "woman2.JPG", list: usersMsgs[5], firstClick: true },
-  { username: 'Abigail1', nickname: 'Abigail', password: 'q1234', picture: "woman3.JPG", list: usersMsgs[6], firstClick: true }];
+  { username: 'Anne1', nickname: 'Anne', password: 'f1234', picture: "woman2.JPG", list: usersMsgs[5], firstClick: true },
+  { username: 'Abigail1', nickname: 'Abigail', password: 'g1234', picture: "woman3.JPG", list: usersMsgs[6], firstClick: true }];
+
+
 
 var pages = true;
 
@@ -158,8 +162,12 @@ function myProfile(user) {
   let secondDiv = document.createElement("div");
   let img = document.createElement("img");
   let span = document.createElement("span");
-  // let i = document.createElement("i");
+  let i = document.createElement("i");
   let h = document.createElement("h5");
+  let a = document.createElement("a");
+  a.setAttribute("href","#my_modal");
+  a.setAttribute("data-toggle","modal");
+  a.setAttribute("data-id","1");
   h.classList.add("uName");
   h.innerText = user.nickname;
   firstDiv.classList.add("settings-tray");
@@ -168,10 +176,12 @@ function myProfile(user) {
   img.setAttribute('alt', "profile image");
   secondDiv.classList.add("text1");
   span.classList.add("settings-tray--right");
-  // i.classList.add("bi", "bi-person-plus");
-  // i.style = "color: black; float: right;";
+  i.classList.add("bi", "bi-person-plus");
+  i.style = "color: black; float: right;";
   secondDiv.appendChild(h);
   firstDiv.appendChild(img);
+  a.appendChild(i);
+  span.appendChild(a);
   // span.appendChild(i);
   firstDiv.appendChild(span);
   firstDiv.appendChild(h);
@@ -227,7 +237,7 @@ function addMsg(user, str, isMyUser, type) {
 
 
 
-function setMessages(myUser, user) {
+function setMessages(myUser, user, oldContact) {
   for (let u of users) {
     if (document.getElementById(u.username).style.display !== "none") {
       document.getElementById(u.username).style.display = "none";
@@ -235,8 +245,10 @@ function setMessages(myUser, user) {
   }
   document.getElementById(user.username).style.display = "block";
   if (user.firstClick) {
-    addMsg(user, myUser.list[0], true, "message");
-    addMsg(user, user.list[0], false, "message");
+    if(oldContact){
+      addMsg(user, myUser.list[0], true, "message");
+      addMsg(user, user.list[0], false, "message");
+    }
     user.firstClick = false;
   }
 }
@@ -252,6 +264,8 @@ function setPages() {
     pages = false;
   }
 }
+
+
 
 function startTime() {
   const today = new Date();
@@ -301,13 +315,16 @@ function setTimeAndLastMsg(msg, type) {
 
 }
 
-function displayUser(myUser, user) {
+function displayUser(myUser, user, oldContact) {
   let firstDiv = document.createElement("div");
   let img = document.createElement("img");
   let secondDiv = document.createElement("div");
   let h = document.createElement("h6");
   let p = document.createElement("p");
-  p.innerText = user.list[0];  
+  if(oldContact){
+    p.innerText = user.list[0]; 
+  }
+  // p.innerText = user.list[0]; //RETURN BACK
   let span = document.createElement("span");
   // span.innerHTML = startTime(); // change
   span.innerHTML = getRandomTime();
@@ -317,7 +334,8 @@ function displayUser(myUser, user) {
     result[0].getElementsByTagName("h6")[0].innerText = user.nickname; //Name//
     result[0].getElementsByTagName("img")[0].src = user.picture; //Pic//
     setPages();
-    setMessages(myUser, user);
+      setMessages(myUser, user, oldContact);
+    // setMessages(myUser, user); //RETURN BACK
   });
   img.setAttribute('src', user.picture);
   img.setAttribute('alt', "Friend photo");
@@ -336,16 +354,38 @@ function displayUser(myUser, user) {
   document.getElementById("contacts").appendChild(firstDiv);
 }
 
+function isExists(users, user){
+  for(let u of users){
+    if(u.username === user.username){
+      return true;
+    }
+  }
+  return false;
+}
+
+function setAllTheOthers(u){
+  for (let user of users){
+    if(u.username === user.username){
+      continue;
+    }
+    if(!(isExists(contactList,user))){
+      allTheOthers.push(user);
+    }
+  }
+}
+
 function displayContacts(user) {
   let i = 0;
   for (let u of users) {
-    if (i == 5) {
+    if (i == 4) {
+      setAllTheOthers(user);
       return;
     }
     if (u.username === user.username) {
       continue;
     }
-    displayUser(user, u);
+    displayUser(user, u, true);
+    contactList.push(u);
     i++;
   }
 }
@@ -405,38 +445,44 @@ key.addEventListener("keypress", function (e) {
   }
 })
 
-function addUser(user) {
-  for (let u of users) {
-    if (data[0] === u.username) {
-      displayUser(u, user);
+
+function addContact(){
+  let txt = document.getElementById("txt").value;
+  if (txt != ''){
+    document.getElementById("txt").value = '';
+    for(let user of allTheOthers){
+      if(txt === user.username){
+        displayUser(myUser(), user, false);
+        allTheOthers = allTheOthers.filter(function(u){
+          return u.username != txt;
+        })
+        contactList.push(user);
+      }
     }
   }
+  // 'Brian1', 'Trevor1', 'Jonathan1', 'Joshua1', 'Ruth1', 'Anne1', 'Abigail1'
 }
-
-// delete //
-// for(let user of users){
-//   console.log(user);
-// }
 
 
 
 
 //////////////////////////////////////////////////////////
+
 var userName = window.localStorage.getItem("0");  
-console.log(userName);
-console.log("sgedgbes"); 
+// console.log(userName);
+// console.log("sgedgbes"); 
 
 var nickName = window.localStorage.getItem("1");  
-console.log(nickName);
+// console.log(nickName);
 
 var passWord = window.localStorage.getItem("2");  
-console.log("----"+passWord);
+// console.log("----"+passWord);
 
 var conf = window.localStorage.getItem("3");  
-console.log(conf);
+// console.log(conf);
 
 var picture = window.localStorage.getItem("4");  
-console.log("__picturwe->>"+picture);
+// console.log("__picturwe->>"+picture);
 
 // let pic= document.getElementById("log");
 // let pic3 = document.createElement("img");
@@ -448,12 +494,14 @@ console.log("__picturwe->>"+picture);
 
 
 var signUp = window.localStorage.getItem("5");  
-console.log("signnnnnn"+signUp);
+// console.log("signnnnnn"+signUp);
 
-let data = [userName, nickName, passWord];
+let data = [userName, nickName, passWord, picture];
 
-
-
+console.log(userName);
+console.log(nickName);
+console.log(passWord);
+console.log(picture);
 
 
 
@@ -466,34 +514,37 @@ let data = [userName, nickName, passWord];
 //   }
 // }
 
-
-if( passWord == "login"){// we are in login
-
-  console.log("we are in login")
+function myUser(){
   for (let u of users) {
     if (data[0] === u.username) {
-      myProfile(u);
-      displayContacts(u);
+      return u;
     }
   }
+}
 
-
+if( passWord == "login"){// we are in login
+  // console.log("we are in login")
+  myProfile(myUser());
+  displayContacts(myUser());
 }
 else{// we are in signup
-
-  console.log("we are in signup")
-
+  // console.log("we are in signup")
+  // { username: 'Brian1', nickname: 'Brian', password: 'a1234', picture: "man1.JPG", list: usersMsgs[0], firstClick: true },
+  // let pic = URL.createObjectURL(data[3].files[0]);
+  console.log(picture);
+  // let user = {username: userName, nickname: nickName,password: passWord,picture: pic};
+  // myProfile(user);
 }
 
-$('#my_modal').on('show.bs.modal', function(e) { 
-  var id = $(e.relatedTarget).data('id');
-  var that = $(this);
-  $(this).find('button[id="save"]').click(function() {
-    var txt = that.find('input[id="txt"]').val();
-    console.log(txt +"search")
-    // alert(id);
-    // alert(txt);
-   });
+// $('#my_modal').on('show.bs.modal', function(e) { 
+//   var id = $(e.relatedTarget).data('id');
+//   var that = $(this);
+//   $(this).find('button[id="save"]').click(function() {
+//     var txt = that.find('input[id="txt"]').val();
+//     console.log(txt +"search")
+//     // alert(id);
+//     // alert(txt);
+//    });
   
-});
+// });
 
