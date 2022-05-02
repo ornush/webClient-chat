@@ -4,7 +4,7 @@
 We wrote a webClient chat that contains at least 5 members chatting with each other. 
 In the chat you can interact and send masseges like sounds records, pictures, files, videos and text.
 
-what you'll need to install:<br />1.run npm init in the cmd on the folder path 
+what you'll need to install:<br />1.run "npm install" in the root folder  
 
 
 After you download all the files you finally can run the Login or SignUp pages on Your broswer  
