@@ -17,13 +17,13 @@ you will need to enter your:
 When you are logged in, you will need to enter with one of our harded coded users from the Array below 
 
  users = [<br />
-  username: 'Brian1', nickname: 'Brian', password: 'e1234'<br />
-  username: 'Trevor1', nickname: 'Trevor', password: 'a1234'<br />
-  username: 'Jonathan1', nickname: 'Jonathan', password: 'w1234'<br />
-  username: 'Joshua1', nickname: 'Joshua', password: 's1234'<br />
+  username: 'Brian1', nickname: 'Brian', password: 'a1234'<br />
+  username: 'Trevor1', nickname: 'Trevor', password: 'b1234'<br />
+  username: 'Jonathan1', nickname: 'Jonathan', password: 'c1234'<br />
+  username: 'Joshua1', nickname: 'Joshua', password: 'd1234'<br />
   username: 'Ruth1', nickname: 'Ruth', password: 'e1234'<br />
-  username: 'Anne1', nickname: 'Anne', password: 'q1234'<br />
-  username: 'Abigail1', nickname: 'Abigail', password: 'q1234'<br />
+  username: 'Anne1', nickname: 'Anne', password: 'f1234'<br />
+  username: 'Abigail1', nickname: 'Abigail', password: 'g1234'<br />
 
 
 <img src="https://user-images.githubusercontent.com/48882826/166236367-841e82cb-3d20-4a58-8246-5faebc40961b.png" alt="drawing" width="300" height="200"/>

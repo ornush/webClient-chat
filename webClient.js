@@ -53,8 +53,6 @@ form.addEventListener('submit', (e) => {
         validname = 0
 
 
-
-
       }
     }
     //nickname

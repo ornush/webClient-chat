@@ -1,120 +1,4 @@
 
-// JS:
-//getting the values from webClient.html
-
-
-// function show() {
-// console.log("recordddddddddddddd")
-// navigator.mediaDevices.getUserMedia({audio:true})
-// .then(stream =>{
-
-//   MediaRecorder = new MediaRecorder(stream)
-//   MediaRecorder.start()
-// chuck = []
-
-//   MediaRecorder.addEventListener("dataavailable",e =>{
-//   chuck.push(e.data)
-//   })
-//   MediaRecorder.addEventListener("stop",e =>{
-// blob = new Blob(chuck)
-// audio_url =URL.createObjectURL(blob)
-// audio =new Audio(audio_url)
-// audio.setAttribute("controls",1)
-// onkeydown.appendChild(audio)
-//   })
-// })
-// }
-
-// function show2(){
-//   console.log("rstopdd")
-
-//   MediaRecorder.stop;
-
-// }
-
-
-
-
-// document.body.onload = addElement;
-
-// function addElement () {
-//   // create a new div element
-//   const newDiv = document.createElement("div");
-
-//   // and give it some content
-//   const newContent = document.createTextNode("Hi there and greetings!");
-
-//   // add the text node to the newly created div
-//   newDiv.appendChild(newContent);
-
-//   // add the newly created element and its content into the DOM
-//   const currentDiv = document.getElementById("div1");
-//   document.body.insertBefore(newDiv, currentDiv);
-// }
-
-
-
-
-// const user1 = ["Michael", "mike","loggin.jpg"];
-// document.getElementById("user1").innerHTML = user1;
-
-// const user2 = ["Sarah", "sara"];
-// document.getElementById("user2").innerHTML = user2;
-
-// const user3 = ["David", "dav34"];
-// document.getElementById("user3").innerHTML = user3;
-
-
-//                   myUser 
-
-// var userName = window.localStorage.getItem("0");
-// // console.log(userName);
-
-// var nickName = window.localStorage.getItem("1");
-// // console.log(nickName);
-
-// var passWord = window.localStorage.getItem("2");
-// // console.log(passWord);
-
-// var picture = window.localStorage.getItem("3");
-// // console.log(picture);
-
-// let data = [userName, nickName, passWord, picture];
-
-// let list = document.getElementById("myList");
-
-
-// let ul = document.createElement("ul");
-// ul.innerText = data[0];
-//   list.appendChild(ul);
-
-//   let ul2 = document.createElement("ul");
-//   ul2.innerText = data[1];
-//   list.appendChild(ul);
-
-// console.log("data-<<<" + data);
-
-// console.log(list);
-
-// data.innerText=data;
-
-// data.forEach((item)=>{
-//   let ul = document.createElement("ul");
-//   ul.innerText = item;
-//   list.appendChild(ul);
-// })
-
-
-
-// // let picture1 = document.getElementById("myPic");
-// function GFG_Fun() {
-//   var img = document.createElement('img');
-//   img.src ='loggin.jpg';
-//   document.getElementById('body').appendChild(img);
-//   // down.innerHTML = "Image Element Added.";
-// }
-
-
 ////////////////////////////////
 
 let usersMsgs = [["Hi"], ["Hello"], ["How are you?"], ["hey"], ["zzzz"], ["tttt"], ["aaaa"]];
@@ -140,15 +24,6 @@ const users = [
 var pages = true;
 var uploadPicture;
 var uploadVideo;
-// <div class="settings-tray">
-//   <img class="profile-image" src="loggin.jpg" alt="profile image">
-
-//   <span class="settings-tray--right ">
-//     <!-- icons -->
-//     <i class="bi bi-person-plus" style="color: black; float: right;" onclick="modal()"></i>
-//   </span>
-// </div>
-
 
 function getRandomTime() {
   let h = Math.floor(Math.random() * 24);
@@ -383,7 +258,7 @@ function displayUser(myUser, user, oldContact) {
   // span.innerHTML = startTime(); // change
   span.innerHTML = getRandomTime();
   firstDiv.classList.add("friend-drawer", "friend-drawer--onhover");
-  firstDiv.id = user.username + "3"; //delete
+  firstDiv.id = user.username + "3";
   firstDiv.addEventListener('click', function () {
     let result = document.getElementsByClassName("friend-drawer no-gutters friend-drawer--grey");
     result[0].getElementsByTagName("h6")[0].innerText = user.nickname; //Name//
@@ -540,27 +415,14 @@ function welcomeBack(name) {
 //////////////////////////////////////////////////////////
 
 var userName = window.localStorage.getItem("0");
-// console.log(userName);
-// console.log("sgedgbes");
+
 
 var nickName = window.localStorage.getItem("1");
-// console.log(nickName);
 
 var passWord = window.localStorage.getItem("2");
-// console.log("----"+passWord);
 
 var conf = window.localStorage.getItem("3");
-// console.log(conf);
 
-// var picture = window.localStorage.getItem("4");  
-// console.log("__picturwe->>"+picture);
-
-// let pic= document.getElementById("log");
-// let pic3 = document.createElement("img");
-// pic3.src=picture;
-// pic3.innerText = pic3.src;
-// console.log("__pic3 srccc->>"+pic3.src);
-// pic.appendChild(pic3);
 var picture = window.localStorage.getItem("6");
 
 
