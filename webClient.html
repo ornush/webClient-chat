@@ -45,6 +45,7 @@
                         <!-- <p class="error-text" id="demo">FIrst name cant be empty</p> -->
                         <!-- <p id="demo"></p> -->
                         <div id="error"></div>
+                        <div id="error5"></div>
                         <label for="nick" id="nickname"><b>Nickname</b></label>
                         <input type="text" placeholder="Enter Nickname" name="nickname" required>
                         <div id="error2"></div>
@@ -68,8 +69,7 @@
                         <!-- picture button -->
                         <label for="picture-upload"><b>Picture</b> <i class="bi bi-camera"></i></label>
                         <input type="file" accept="image/*" id="picture-upload" name="picture" required>
-                        <p id="error_msg" style="color:red; font-size: 20px; font-weight: bold;">
-                        </p>
+                        <p id="error_msg" style="color:red; font-size: 20px; font-weight: bold;"></p>
 
                         <script>
                             var down = document.getElementById('error_msg');
@@ -77,8 +77,6 @@
                             function ErrorMsg() {
                                 if (file.files.length == 0) {
                                     down.innerHTML = "No files selected";
-                                } else {
-                                    down.innerHTML = "Some file is selected";
                                 }
                             }
                         </script>

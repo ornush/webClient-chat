@@ -35,6 +35,7 @@ body {
   border-radius: 10px;
   margin-right: 0px;
   margin-left: -17px;
+  user-select: none;  
 }
 
 .settings-tray .no-gutters {
@@ -97,14 +98,14 @@ input:focus {
   vertical-align: baseline;
   background: #fff;
   transition: 0.3s ease;
-  
+  user-select: none;  
 }
 
 .friend-drawer--grey {
   background: #8af6e6;
   width: 775px;
   border-radius: 10px;
-  margin-left: -30px;
+  margin-left: -15px;
 
 }
 
@@ -138,7 +139,8 @@ input:focus {
 .friend-drawer--onhover:hover p,
 .friend-drawer--onhover:hover h6,
 .friend-drawer--onhover:hover .time {
-  color: #fff !important;
+  /* color: #fff !important; */ 
+  /* Return back */
 }
 
 hr {
@@ -150,6 +152,7 @@ hr {
   padding: 10px 14px;
   background: #eee;
   margin: 10px 30px;
+  margin-left: 18px;
   border-radius: 9px;
   position: relative;
   animation: fadeIn 0.3s ease-in;
@@ -204,7 +207,8 @@ hr {
   align-items: center;
   margin-top: 19px;
   bottom: 0;
-  width: 745px;
+  margin-left: -15px;
+  width: 775px;
   border-radius: 5px;
 }
 
@@ -289,12 +293,13 @@ button {
 
 .col-md-3 .chat-bubble--right{
   display: block;
-  width: fit-content;
+  width: max-content;
   max-width: 500px;
   line-break: anywhere;
   float: right;
   position: relative;
   direction: rtl;
+  margin-right: 5px;
 }
 .text .user-name{
   position: relative;
@@ -361,6 +366,60 @@ button {
 .chat-box-tray i:last-of-type {
   margin-left: 5px;
 }
-/* .uName{
-  margin-left: 0em;
-} */
+#userPage{
+ display: none;
+ background-color: rgb(253, 253, 253);
+ margin-left: -15px;
+ width: 775px;
+}
+
+#logIn{
+  display: none;
+  background-color: rgb(253, 253, 253);
+  margin-left: -15px;
+  width: 775px;
+}
+
+ #logIn h1{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+ }
+
+ #signup{
+  display: none;
+  background-color: rgb(253, 253, 253);
+  margin-left: -15px;
+  width: 775px;
+ }
+
+ #signup h1{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+  margin-top: 0px;
+ }
+
+.contacts::-webkit-scrollbar{
+  width: 0.5rem;
+}
+.contacts::-webkit-scrollbar-thumb {
+  background-color: rgb(205, 205, 205);
+  border-radius: 10pt;
+}
+
+#messages::-webkit-scrollbar{
+  position: relative;
+  width: 0.5rem;
+}
+#messages::-webkit-scrollbar-thumb {
+  background-color: rgb(205, 205, 205);
+  border-radius: 10pt;
+}

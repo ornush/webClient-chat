@@ -23,22 +23,6 @@
 </head>
 
 <body>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    
     <div class="container">
         <div class="row no-gutters">
             <!-- left side -->
@@ -68,8 +52,8 @@
                                 </div>
 
                                 <div class="modal-footer">
-                                    <button id="save" type="save" class="btn btn-primary"
-                                        data-dismiss="modal" onclick="addContact()">Add</button>
+                                    <button id="save" type="save" class="btn btn-primary" data-dismiss="modal"
+                                        onclick="addContact()">Add</button>
                                     <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                 </div>
                             </div>
@@ -88,7 +72,11 @@
             </div>
 
             <!-- right side chat side -->
-            <div class="col-md-8">
+            <div class="col-md-8" id="logIn">
+            </div>
+            <div class="col-md-8" id="signup">
+            </div>
+            <div class="col-md-8" id="userPage">
                 <div class="settings-traysettings-tray">
                     <div class="friend-drawer no-gutters friend-drawer--grey">
                         <img class="profile-image">
@@ -110,7 +98,7 @@
                             <div class="chat-box-tray">
                                 <input type="text" placeholder="Type your message here..." id="myMsg">
 
-                                        <!-- icons -->
+                                <!-- icons -->
 
                                 <div class="dropup">
                                     <button class="btn btn-default dropdown-toggle" type="button" id="menu1"
@@ -123,26 +111,25 @@
                                                 <label for="picture-upload"> <i class="bi bi-image"
                                                         style="color: black; float: right;"></i></label>
                                                 <input type="file" accept="image/*" id="picture-upload" name="picture"
-                                                    onchange="pictureUpload()" required>
+                                                    required>
                                             </a></li>
 
 
 
 
-                                            
+
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
                                                 <!-- video button -->
                                                 <label for="video-upload"> <i class="bi bi-camera-reels"
                                                         style="color: black; float: right;"></i></label>
                                                 <input type="file" accept="video/*" id="video-upload" name="video"
-                                                    onchange="videoUpload()" required>
+                                                    required>
                                             </a></li>
 
                                         <li role="presentation"><a role="menuitem" tabindex="-1" href="#">
                                                 <label for="txt-upload"> <i class="bi bi-file-text"
                                                         style="color: black; float: right;"></i></label>
-                                                <input type="file" accept=".txt" id="txt-upload" name="txt"
-                                                    onchange="textUpload()" required>
+                                                <input type="file" accept=".txt" id="txt-upload" name="txt" required>
                                             </a>
                                         </li>
                                         <!-- <li role="presentation" class="divider"></li> -->
@@ -182,8 +169,6 @@
                                                             .forEach(track => track.stop()); // stop each of them                                        
                                                     }
                                                 </script>
-
-
                                             </a>
                                         </li>
                                     </ul>

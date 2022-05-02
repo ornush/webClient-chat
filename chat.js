@@ -117,9 +117,14 @@
 
 ////////////////////////////////
 
-let usersMsgs = [["Hi"], ["Hello"], ["How are you?"], ["uuuu"], ["zzzz"], ["tttt"], ["aaaa"]];
+let usersMsgs = [["Hi"], ["Hello"], ["How are you?"], ["hey"], ["zzzz"], ["tttt"], ["aaaa"]];
+let video = "video.mp4";
+let pic = "icon-error.jpg";
+let txt = "test.txt";
+let rec = "abc.mp3"
 let contactList = [];
 let allTheOthers = [];
+let u = 0;
 
 const users = [
   { username: 'Brian1', nickname: 'Brian', password: 'a1234', picture: "man1.JPG", list: usersMsgs[0], firstClick: true },
@@ -133,7 +138,8 @@ const users = [
 
 
 var pages = true;
-
+var uploadPicture;
+var uploadVideo;
 // <div class="settings-tray">
 //   <img class="profile-image" src="loggin.jpg" alt="profile image">
 
@@ -165,9 +171,9 @@ function myProfile(user) {
   let i = document.createElement("i");
   let h = document.createElement("h5");
   let a = document.createElement("a");
-  a.setAttribute("href","#my_modal");
-  a.setAttribute("data-toggle","modal");
-  a.setAttribute("data-id","1");
+  a.setAttribute("href", "#my_modal");
+  a.setAttribute("data-toggle", "modal");
+  a.setAttribute("data-id", "1");
   h.classList.add("uName");
   h.innerText = user.nickname;
   firstDiv.classList.add("settings-tray");
@@ -188,7 +194,7 @@ function myProfile(user) {
   document.getElementById("myUser").appendChild(firstDiv);
 }
 
-function addMsg(user, str, isMyUser, type) {
+function addMsg(user, str, isMyUser, type, upRec) {
   let rowClass = document.createElement("div");
   let colClass = document.createElement("div");
   let chatClass = document.createElement("div");
@@ -226,9 +232,17 @@ function addMsg(user, str, isMyUser, type) {
     chatClass.appendChild(text);
   }
   if (type == "record") {
-    let rec = document.createElement("div");
-    rec.appendChild(str);
-    chatClass.appendChild(rec);
+    if (upRec) {
+      let temp = document.createElement("audio");
+      temp.setAttribute("preload", "auto");
+      temp.setAttribute("src", str);
+      temp.setAttribute("controls", "1");
+      chatClass.appendChild(temp);
+    } else {
+      let rec = document.createElement("div");
+      rec.appendChild(str);
+      chatClass.appendChild(rec);
+    }
   }
   colClass.appendChild(chatClass);
   rowClass.appendChild(colClass);
@@ -238,16 +252,57 @@ function addMsg(user, str, isMyUser, type) {
 
 
 function setMessages(myUser, user, oldContact) {
+  document.getElementById("userPage").style.display = "block";
+  document.getElementById("logIn").style.display = "none";
+  document.getElementById("signup").style.display = "none";
+  let usernameColor;
+
   for (let u of users) {
     if (document.getElementById(u.username).style.display !== "none") {
       document.getElementById(u.username).style.display = "none";
+      usernameColor = u.username + "3";
+      document.getElementById(usernameColor).style.backgroundColor = ""; //delete
     }
   }
   document.getElementById(user.username).style.display = "block";
+  usernameColor = user.username + "3";
+  document.getElementById(usernameColor).style.backgroundColor = "#f8f9fa"; //delete
   if (user.firstClick) {
-    if(oldContact){
-      addMsg(user, myUser.list[0], true, "message");
-      addMsg(user, user.list[0], false, "message");
+    if (oldContact) {
+      if (u == 0) {
+        addMsg(user, myUser.list[0], true, "message");
+        addMsg(user, pic, false, "image");
+        addMsg(user, txt, true, "text");
+        addMsg(user, video, false, "video");
+        addMsg(user, user.list[0], false, "message");
+      }
+      if (u == 1) {
+        addMsg(user, myUser.list[0], true, "message");
+        addMsg(user, pic, true, "image");
+        addMsg(user, txt, false, "text");
+        addMsg(user, video, true, "video");
+        addMsg(user, user.list[0], false, "message");
+      }
+      if (u == 2) {
+        addMsg(user, myUser.list[0], true, "message");
+        addMsg(user, pic, false, "image");
+        addMsg(user, video, true, "video");
+        addMsg(user, rec, true, "record", true);
+        addMsg(user, user.list[0], false, "message");
+      }
+      if (u == 3) {
+        addMsg(user, myUser.list[0], true, "message");
+        addMsg(user, pic, true, "image");
+        addMsg(user, user.list[0], false, "message");
+      }
+      if (u == 4) {
+        addMsg(user, myUser.list[0], true, "message");
+        addMsg(user, video, false, "video");
+        addMsg(user, rec, true, "record", true);
+        addMsg(user, txt, false, "text");
+        addMsg(user, user.list[0], false, "message");
+      }
+      u = u + 1;
     }
     user.firstClick = false;
   }
@@ -321,21 +376,20 @@ function displayUser(myUser, user, oldContact) {
   let secondDiv = document.createElement("div");
   let h = document.createElement("h6");
   let p = document.createElement("p");
-  if(oldContact){
-    p.innerText = user.list[0]; 
+  if (oldContact) {
+    p.innerText = user.list[0];
   }
-  // p.innerText = user.list[0]; //RETURN BACK
   let span = document.createElement("span");
   // span.innerHTML = startTime(); // change
   span.innerHTML = getRandomTime();
   firstDiv.classList.add("friend-drawer", "friend-drawer--onhover");
+  firstDiv.id = user.username + "3"; //delete
   firstDiv.addEventListener('click', function () {
     let result = document.getElementsByClassName("friend-drawer no-gutters friend-drawer--grey");
     result[0].getElementsByTagName("h6")[0].innerText = user.nickname; //Name//
     result[0].getElementsByTagName("img")[0].src = user.picture; //Pic//
     setPages();
-      setMessages(myUser, user, oldContact);
-    // setMessages(myUser, user); //RETURN BACK
+    setMessages(myUser, user, oldContact);
   });
   img.setAttribute('src', user.picture);
   img.setAttribute('alt', "Friend photo");
@@ -354,21 +408,21 @@ function displayUser(myUser, user, oldContact) {
   document.getElementById("contacts").appendChild(firstDiv);
 }
 
-function isExists(users, user){
-  for(let u of users){
-    if(u.username === user.username){
+function isExists(users, user) {
+  for (let u of users) {
+    if (u.username === user.username) {
       return true;
     }
   }
   return false;
 }
 
-function setAllTheOthers(u){
-  for (let user of users){
-    if(u.username === user.username){
+function setAllTheOthers(u) {
+  for (let user of users) {
+    if (u.username === user.username) {
       continue;
     }
-    if(!(isExists(contactList,user))){
+    if (!(isExists(contactList, user))) {
       allTheOthers.push(user);
     }
   }
@@ -377,7 +431,7 @@ function setAllTheOthers(u){
 function displayContacts(user) {
   let i = 0;
   for (let u of users) {
-    if (i == 4) {
+    if (i == 5) {
       setAllTheOthers(user);
       return;
     }
@@ -392,39 +446,44 @@ function displayContacts(user) {
 
 function recordUpload(audio) {
   let user = myPartner();
-  // addMsg(user, audio, false, "record");
+  console.log(audio);
   addMsg(user, audio, true, "record");
   setTimeAndLastMsg(audio, "record");
 }
 
-let pictureUpload = function () {
+document.querySelector("#picture-upload").addEventListener("change", function () {
+  let user = myPartner();
   let picture = document.getElementById("picture-upload");
-  let user = myPartner();
-  if (picture.value != "") {
-    addMsg(user, picture.files[0].name, true, "image");
-    // addMsg(user, picture.files[0].name, false, "image");
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    addMsg(user, reader.result, true, "image");
     setTimeAndLastMsg(picture, "image");
-  }
-}
+  })
+  reader.readAsDataURL(this.files[0]);
+});
 
-let videoUpload = function () {
+document.querySelector("#video-upload").addEventListener("change", function () {
+  let user = myPartner();
   let video = document.getElementById("video-upload");
-  let user = myPartner();
-  if (video.value != "") {
-    // addMsg(user, video.files[0].name, true, "video");
-    addMsg(user, video.files[0].name, false, "video");
-    setTimeAndLastMsg(video, "video");
-  }
-}
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    addMsg(user, reader.result, true, "video");
 
-let textUpload = function () {
-  let text = document.getElementById("txt-upload");
+    setTimeAndLastMsg(video, "video");
+  })
+  reader.readAsDataURL(this.files[0]);
+});
+
+document.querySelector("#txt-upload").addEventListener("change", function () {
   let user = myPartner();
-  if (text.value != "") {
-    addMsg(user, text.files[0].name, true, "text");
-    setTimeAndLastMsg(video, "text");
-  }
-}
+  let text = document.getElementById("txt-upload");
+  const reader = new FileReader();
+  reader.addEventListener("load", () => {
+    addMsg(user, reader.result, true, "text");
+    setTimeAndLastMsg(text, "text");
+  })
+  reader.readAsDataURL(this.files[0]);
+});
 
 function sendButton() {
   let user = myPartner();
@@ -446,21 +505,33 @@ key.addEventListener("keypress", function (e) {
 })
 
 
-function addContact(){
+function addContact() {
   let txt = document.getElementById("txt").value;
-  if (txt != ''){
+  if (txt != '') {
     document.getElementById("txt").value = '';
-    for(let user of allTheOthers){
-      if(txt === user.username){
+    for (let user of allTheOthers) {
+      if (txt === user.username) {
         displayUser(myUser(), user, false);
-        allTheOthers = allTheOthers.filter(function(u){
+        allTheOthers = allTheOthers.filter(function (u) {
           return u.username != txt;
         })
         contactList.push(user);
       }
     }
   }
-  // 'Brian1', 'Trevor1', 'Jonathan1', 'Joshua1', 'Ruth1', 'Anne1', 'Abigail1'
+}
+
+function welcome(name) {
+  let h = document.createElement("h1");
+  h.innerText = "Welcome " + name;
+  document.getElementById("signup").appendChild(h);
+}
+
+function welcomeBack(name) {
+  let h = document.createElement("h1");
+  h.innerText = "Welcome Back " + name;
+  document.getElementById("logIn").appendChild(h);
+
 }
 
 
@@ -468,20 +539,20 @@ function addContact(){
 
 //////////////////////////////////////////////////////////
 
-var userName = window.localStorage.getItem("0");  
+var userName = window.localStorage.getItem("0");
 // console.log(userName);
-// console.log("sgedgbes"); 
+// console.log("sgedgbes");
 
-var nickName = window.localStorage.getItem("1");  
+var nickName = window.localStorage.getItem("1");
 // console.log(nickName);
 
-var passWord = window.localStorage.getItem("2");  
+var passWord = window.localStorage.getItem("2");
 // console.log("----"+passWord);
 
-var conf = window.localStorage.getItem("3");  
+var conf = window.localStorage.getItem("3");
 // console.log(conf);
 
-var picture = window.localStorage.getItem("4");  
+// var picture = window.localStorage.getItem("4");  
 // console.log("__picturwe->>"+picture);
 
 // let pic= document.getElementById("log");
@@ -490,31 +561,20 @@ var picture = window.localStorage.getItem("4");
 // pic3.innerText = pic3.src;
 // console.log("__pic3 srccc->>"+pic3.src);
 // pic.appendChild(pic3);
+var picture = window.localStorage.getItem("6");
 
 
-
-var signUp = window.localStorage.getItem("5");  
+var signUp = window.localStorage.getItem("5");
 // console.log("signnnnnn"+signUp);
 
 let data = [userName, nickName, passWord, picture];
 
-console.log(userName);
-console.log(nickName);
-console.log(passWord);
-console.log(picture);
+function newUser() {
+  let user = { username: userName, nickname: nickName, password: passWord, picture: picture };
+  return user;
+}
 
-
-
-
-
-// for (let u of users) {
-//   if (data[0] === u.username) {
-//     myProfile(u);
-//     displayContacts(u);
-//   }
-// }
-
-function myUser(){
+function myUser() {
   for (let u of users) {
     if (data[0] === u.username) {
       return u;
@@ -522,29 +582,18 @@ function myUser(){
   }
 }
 
-if( passWord == "login"){// we are in login
-  // console.log("we are in login")
+if (passWord == "login") {// we are in login
+  document.getElementById("logIn").style.display = "block";
   myProfile(myUser());
   displayContacts(myUser());
+  welcomeBack(myUser().nickname);
+} else {
+  // we are in signup
+  document.getElementById("signup").style.display = "block";
+  for (let u of users) {
+    allTheOthers.push(u);
+  }
+  myProfile(newUser());
+  welcome(newUser().nickname);
 }
-else{// we are in signup
-  // console.log("we are in signup")
-  // { username: 'Brian1', nickname: 'Brian', password: 'a1234', picture: "man1.JPG", list: usersMsgs[0], firstClick: true },
-  // let pic = URL.createObjectURL(data[3].files[0]);
-  console.log(picture);
-  // let user = {username: userName, nickname: nickName,password: passWord,picture: pic};
-  // myProfile(user);
-}
-
-// $('#my_modal').on('show.bs.modal', function(e) { 
-//   var id = $(e.relatedTarget).data('id');
-//   var that = $(this);
-//   $(this).find('button[id="save"]').click(function() {
-//     var txt = that.find('input[id="txt"]').val();
-//     console.log(txt +"search")
-//     // alert(id);
-//     // alert(txt);
-//    });
-  
-// });
 
