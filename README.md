@@ -9,7 +9,7 @@ what you'll need to install:<br />1.run "npm install" in the root folder
 
 After you download all the files you finally can run the Login or SignUp pages on Your broswer  
 
-**if you want to Register choose "login.html" page**
+<ins>**if you want to Register choose "login.html" page**<br />
 you will need to enter your:
 1. User Name (should include 4 Characters)
 2. Nick Name (should include 4 Characters -will apear in the chatBox) 
@@ -29,7 +29,7 @@ When you are logged in, you will need to enter with one of our harded coded user
 <img src="https://user-images.githubusercontent.com/48882826/166236367-841e82cb-3d20-4a58-8246-5faebc40961b.png" alt="drawing" width="300" height="200"/>
 
 
-**If you'll want to SignUp choose the "webClient.html" page**
+<ins>**If you'll want to SignUp choose the "webClient.html" page**<br />
 you will need to enter your:
 1. User Name (should include 4 Characters)
 2. Nick Name (should include 4 Characters -will apear in the chatBox) 
